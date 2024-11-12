@@ -563,7 +563,7 @@ func resourceTopicSubscriptionCustomizeDiff(_ context.Context, diff *schema.Reso
 		return diff.SetNew("filter_policy_scope", subscriptionFilterPolicyScopeMessageAttributes)
 	}
 
-	if !hasPolicy && !hasScope {
+	if !hasPolicy {
 		// When the policy is not set, the API silently drops the scope.
 		return diff.Clear("filter_policy_scope")
 	}
